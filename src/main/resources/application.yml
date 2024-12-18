@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: aop
+  security:
+    user:
+      name: admin           # \uAE30\uBCF8 \uC0AC\uC6A9\uC790\uBA85 \uC124\uC815
+      password: admin123    # \uAE30\uBCF8 \uBE44\uBC00\uBC88\uD638 \uC124\uC815
