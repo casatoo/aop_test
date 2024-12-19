@@ -2,9 +2,18 @@ server:
   port: 8080
 
 spring:
+  datasource:
+    url: jdbc:mysql://1.234.44.77:3306/mysql
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
   application:
     name: aop
   security:
     user:
-      name: admin           # \uAE30\uBCF8 \uC0AC\uC6A9\uC790\uBA85 \uC124\uC815
-      password: admin123    # \uAE30\uBCF8 \uBE44\uBC00\uBC88\uD638 \uC124\uC815
+      name: admin
+      password: 1234

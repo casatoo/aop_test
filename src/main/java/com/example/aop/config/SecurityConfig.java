@@ -14,17 +14,16 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable()) // CSRF 비활성화
+            .csrf(csrf -> csrf.disable()) // CSRF 비활성화 (테스트용)
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/public/**").permitAll() // public 경로는 인증 없이 접근 가능
-                .requestMatchers("/admin/**").hasRole("ADMIN") // admin 경로는 ADMIN 권한 필요
-                .anyRequest().authenticated() // 그 외 요청은 인증 필요
+                .anyRequest().permitAll()
             )
-            .formLogin(form -> form // 기본 로그인 폼
-                .loginPage("/login") // 커스텀 로그인 페이지 경로
+            .formLogin(form -> form
+                .loginPage("/login") // 로그인 페이지 설정
+                .defaultSuccessUrl("/main", true) // 로그인 성공 시 이동할 경로
                 .permitAll()
             )
-            .logout(logout -> logout // 로그아웃 설정
+            .logout(logout -> logout
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/login?logout")
                 .permitAll()

@@ -1,29 +1,13 @@
 package com.example.aop.model;
 
+import com.example.aop.annotation.ClassAOP;
+import lombok.Data;
+
+@Data
 public class User {
 
     private String name;
+
     private int age;
 
-    // 생성자, Getter/Setter
-    public User(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
 }
